@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Welcome to MMTS";
+}
+
+<style>
+    body {
+        background: linear-gradient(to right, #e0f7fa, #e8f5e9);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+    }
+
+    .homepage-header {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    .btn-lg {
+        border-radius: 30px;
+        padding: 10px 30px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 16px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+</style>
+
+<div class="container homepage-header text-center">
+    <h1 class="display-4 fw-bold">Welcome to Mentor-Mentee Tutoring System (MMTS)</h1>
+    <p class="lead text-muted">
+        Empowering students through academic support, guidance, and collaboration.
+    </p>
+    <div class="mt-4">
+        <a class="btn btn-primary btn-lg me-2" asp-controller="Mentor" asp-action="Index">Browse Mentors</a>
+        <a class="btn btn-outline-success btn-lg" asp-controller="Mentee" asp-action="Create">Join as Mentee</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title fw-bold">One-on-One Mentoring</h5>
+                        <p class="card-text">
+                            Connect with qualified mentors for personalized academic guidance.
+                        </p>
+                    </div>
+                    <a class="btn btn-outline-primary mt-3" asp-controller="Mentor" asp-action="Index">Join Now</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title fw-bold">Session Booking</h5>
+                        <p class="card-text">
+                            Easily book tutoring sessions based on your mentor's availability.
+                        </p>
+                    </div>
+                    <a class="btn btn-outline-primary mt-3" asp-controller="Session" asp-action="Index">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title fw-bold">Community Forum</h5>
+                        <p class="card-text">
+                            Ask questions, share resources, and engage with peers and mentors.
+                        </p>
+                    </div>
+                    <a class="btn btn-outline-primary mt-3" asp-controller="ForumPost" asp-action="Index">Visit Forum</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

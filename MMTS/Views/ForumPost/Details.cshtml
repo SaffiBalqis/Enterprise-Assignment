@@ -1,0 +1,65 @@
+﻿@model MMTS.Models.ForumPost
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ForumPost</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PostedOn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PostedOn)
+        </dd>
+
+        <dt class="col-sm-2">
+            Attachment
+        </dt>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.FilePath))
+            {
+                var fileExt = System.IO.Path.GetExtension(Model.FilePath).ToLower();
+                if (fileExt == ".jpg" || fileExt == ".png" || fileExt == ".jpeg" || fileExt == ".gif")
+                {
+                    <img src="@Url.Content(Model.FilePath)" alt="Uploaded Image" class="img-fluid rounded shadow-sm" style="max-height: 300px;" />
+                }
+                else if (fileExt == ".pdf")
+                {
+                    <a href="@Url.Content(Model.FilePath)" target="_blank" class="btn btn-outline-primary">View PDF</a>
+                }
+                else
+                {
+                    <a href="@Url.Content(Model.FilePath)" target="_blank" class="btn btn-outline-secondary">Download File</a>
+                }
+            }
+            else
+            {
+                <span class="text-muted">No attachment available.</span>
+            }
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

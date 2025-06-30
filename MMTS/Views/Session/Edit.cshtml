@@ -1,0 +1,43 @@
+﻿@model MMTS.Models.Session
+
+@{
+    ViewData["Title"] = "Edit Session";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Edit Session</h2>
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="MentorId" class="form-label fw-semibold">Mentor</label>
+            <select asp-for="MentorId" class="form-select" asp-items="ViewBag.MentorId"></select>
+            <span asp-validation-for="MentorId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="MenteeId" class="form-label fw-semibold">Mentee</label>
+            <select asp-for="MenteeId" class="form-select" asp-items="ViewBag.MenteeId"></select>
+            <span asp-validation-for="MenteeId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ScheduledTime" class="form-label fw-semibold">Scheduled Time</label>
+            <input asp-for="ScheduledTime" class="form-control" type="datetime-local" />
+            <span asp-validation-for="ScheduledTime" class="text-danger"></span>
+        </div>
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
