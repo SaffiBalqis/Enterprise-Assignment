@@ -9,9 +9,7 @@
 - 🧑‍🎓 Mentee registration and profile management
 - 👨‍🏫 Mentor listings with specialization and availability
 - 📅 Appointment scheduling system
-- 📬 Notifications and session reminders
 - 💬 Forum for academic discussion
-- 📊 Admin dashboard and user management
 - 🌐 Exposed SOAP Web Service for external system access
 
 ---
